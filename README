@@ -1,0 +1,33 @@
+Repack
+
+Author: Jeremy Stober
+Contact: stober@gmail.com
+Version: 0.1
+
+For any list of Python modules
+
+pymod1
+pymod2
+pymod3
+
+make it easy to install them in a new namespace. So to get
+
+import pymod1
+import pymod2
+import pymod3
+
+you have to instead do the following
+
+import meta.pymod1 as pymod1
+import meta.pymod2 as pymod2
+import meta.pymod3 as pymod3
+
+E.g. All the modules are installed in a new (module) namespace "meta".
+
+At the moment the scope of repackage is limited to source projects on Github that use distutils (my personal use case). Other packaging mechanisms are not supported.
+
+Included is a script that takes as input a new repackage name and a git_config file containing locations of github repositories for the source of distutil projects. The script constructs a new project in a directory
+
+<repackage name>
+
+such that if you run setup.py in that directory you will install all the github projects in your repackage namespace.
